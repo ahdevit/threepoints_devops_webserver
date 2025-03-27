@@ -27,5 +27,6 @@ jobs:
         with:
           name: credentials
           path: credentials.ini
-#      - name: Build Docker image
-#        run: docker build -f Dockerfile -t devops_ws . --tag devops_ws_$(date +%s)
+          
+      - name: Build Docker image
+        run: docker build -f Dockerfile -t devops_ws . --tag devops_ws_$(date +%s)
