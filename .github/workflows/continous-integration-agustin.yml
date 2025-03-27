@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      - feature-*
+      - hotfix-*
 
 jobs:
   build:
@@ -16,17 +18,19 @@ jobs:
       - name: Pruebas de SAST
         run: echo "Ejecución de pruebas de SAST"
 
-      - name: Crear archivo credentials.ini
-        run: |
-          echo "[credentials]" > credentials.ini
-          echo "username=${{ secrets.USERNAME }}" >> credentials.ini
-          echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
-
-      - name: Subir credentials.ini como artefacto
-        uses: actions/upload-artifact@v4
-        with:
-          name: credentials
-          path: credentials.ini
-          
-      - name: Build Docker image
-        run: docker build -f Dockerfile -t devops_ws . --tag devops_ws_$(date +%s)
+      - name: Rama feature-gHActions
+        run: echo "Ejecución desde la rama feature-gHActions"
+#      - name: Crear archivo credentials.ini
+#        run: |
+#          echo "[credentials]" > credentials.ini
+#          echo "username=${{ secrets.USERNAME }}" >> credentials.ini
+#          echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
+#
+#      - name: Subir credentials.ini como artefacto
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: credentials
+#          path: credentials.ini
+#
+#      - name: Build Docker image
+#        run: docker build -f Dockerfile -t devops_ws . --tag devops_ws_$(date +%s)
