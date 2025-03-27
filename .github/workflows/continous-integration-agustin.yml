@@ -23,7 +23,7 @@ jobs:
           echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
 
       - name: Subir credentials.ini como artefacto
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: credentials
           path: credentials.ini
